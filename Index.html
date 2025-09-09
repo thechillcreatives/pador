@@ -90,6 +90,17 @@
             color: var(--white);
         }
 
+        .btn.added {
+            background-color: #27ae60;
+            /* A green color for 'added' status */
+            color: var(--white);
+            transform: none;
+            /* Prevents the hover animation while active */
+            pointer-events: none;
+            /* Disables clicks while the animation is active */
+            transition: background-color 0.3s ease, transform 0s;
+        }
+
         .section {
             padding: 80px 0;
         }
@@ -1530,16 +1541,46 @@
             });
 
         // Existing item buttons logic
+        // const productButtons = document.querySelectorAll(".add-to-cart-btn");
+        // productButtons.forEach((button) => {
+        //     button.addEventListener("click", () => {
+        //         const productCard = button.closest(".product-card");
+        //         const productName = productCard.dataset.productName;
+        //         const productPrice = parseFloat(productCard.dataset.productPrice);
+        //         addItemToCart({
+        //             name: productName,
+        //             price: productPrice,
+        //         });
+        //     });
+        // });
+
+        // Existing item buttons logic
         const productButtons = document.querySelectorAll(".add-to-cart-btn");
         productButtons.forEach((button) => {
-            button.addEventListener("click", () => {
+            button.addEventListener("click", (e) => {
+                // Prevent the default link behavior
+                e.preventDefault();
+
                 const productCard = button.closest(".product-card");
                 const productName = productCard.dataset.productName;
                 const productPrice = parseFloat(productCard.dataset.productPrice);
+
+                // Add item to cart logic
                 addItemToCart({
                     name: productName,
                     price: productPrice,
                 });
+
+                // Add visual feedback
+                const originalText = button.textContent;
+                button.textContent = "Added!";
+                button.classList.add("added");
+
+                // Use a timeout to revert the button to its original state
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove("added");
+                }, 1000); // Revert after 1 second
             });
         });
 
