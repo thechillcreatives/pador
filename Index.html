@@ -1,1413 +1,1364 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-9ZHR3SLB2K"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-9ZHR3SLB2K");
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZHR3SLB2K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-9ZHR3SLB2K");
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PAD'OR - Natural Skincare & Beauty Products in Lebanon</title>
     <meta name="description" content="Discover PAD'OR's natural and organic skincare products crafted in Lebanon. Shop our luxurious body lotions, scrubs, and tanning oils for a radiant glow. We offer cash on delivery in Beirut, Jounieh, and all of Lebanon.">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet" />
     <style>
-      /* Reset and Base Styles */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        /* font-family: 'Poppins', sans-serif; */
-        font-family: "Playfair Display", serif;
-      }
-
-      :root {
-        --primary: #f2d2c7; /* A soft, warm light pink, serving as the new main color */
-        --primary-dark: #b8988d; /* A muted rose-taupe for deeper accents and states */
-        --secondary: #fdf6f2; /* An airy, off-white for clean backgrounds */
-        --accent: #d8a0a9; /* A slightly darker dusty rose for highlights and calls to action */
-        --text: #5a4e47; /* A warm, dark brown for excellent readability */
-        --text-light: #9c9189; /* A light, soft taupe for subtle details and secondary text */
-        --white: #ffffff; /* Pure white for elements that need a crisp, clean break */
-      }
-
-      body {
-        color: var(--text);
-        line-height: 1.6;
-        background-color: var(--white);
-      }
-
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-      }
-
-      .btn {
-        display: inline-block;
-        background: var(--primary);
-        color: var(--white);
-        padding: 12px 30px;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-      }
-
-      .btn:hover {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-      }
-
-      .btn-outline {
-        background: transparent;
-        border: 2px solid var(--primary);
-        color: var(--primary);
-      }
-
-      .btn-outline:hover {
-        background: var(--primary);
-        color: var(--white);
-      }
-
-      .section {
-        padding: 80px 0;
-      }
-
-      .section-title {
-        text-align: center;
-        margin-bottom: 50px;
-      }
-
-      .section-title h2 {
-        font-size: 36px;
-        margin-bottom: 15px;
-        color: var(--primary-dark);
-      }
-
-      .section-title p {
-        color: var(--text-light);
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      /* Header Styles */
-      header {
-        background-color: var(--white);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 0;
-        position: relative; /* Needed for positioning the mobile menu */
-      }
-
-      .logo {
-        font-size: 24px;
-        font-weight: 700;
-        color: var(--primary);
-        text-decoration: none;
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-      }
-
-      .nav-links li {
-        margin-left: 30px;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: var(--text);
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-
-      .nav-links a:hover {
-        color: var(--primary);
-      }
-
-      .cart-icon,
-      .menu-toggle {
-        position: relative;
-        cursor: pointer;
-        transition: color 0.3s ease;
-      }
-
-      .cart-icon i,
-      .menu-toggle i {
-        color: var(--primary-dark);
-      }
-
-      .cart-icon:hover i,
-      .menu-toggle:hover i {
-        color: var(--primary);
-      }
-
-      .cart-count {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        background: var(--accent);
-        color: var(--white);
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-      }
-
-      /* Mobile Menu Button & Cart Icon Grouping */
-      .mobile-controls {
-        display: flex;
-        align-items: center;
-        gap: 20px; /* Space between cart and hamburger */
-      }
-
-      .menu-toggle {
-        display: none;
-        font-size: 24px;
-        cursor: pointer;
-        color: var(--primary-dark);
-      }
-
-      /* Hero Section */
-      .hero {
-        padding: 150px 0 100px;
-        background: linear-gradient(135deg, var(--secondary) 0%, #f5f0e1 100%);
-        text-align: center;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-        margin-bottom: 20px;
-        color: var(--primary-dark);
-      }
-
-      .hero p {
-        font-size: 18px;
-        max-width: 700px;
-        margin: 0 auto 30px;
-        color: var(--text-light);
-      }
-
-      /* About Section */
-      .about {
-        background: var(--white);
-      }
-
-      .about-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
-      }
-
-      .about-image img {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .about-text h2 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: var(--primary-dark);
-      }
-
-      .about-features {
-        list-style: none;
-        margin: 20px 0;
-      }
-
-      .about-features li {
-        margin-bottom: 10px;
-        padding-left: 30px;
-        position: relative;
-      }
-
-      .about-features li::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: var(--primary);
-        font-weight: bold;
-        font-size: 18px;
-      }
-
-      /* Products Section */
-      .products {
-        background: var(--secondary);
-      }
-
-      .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-      }
-
-      .product-card {
-        background: var(--white);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease;
-      }
-
-      .product-card:hover {
-        transform: translateY(-10px);
-      }
-
-      .product-image {
-        height: 250px;
-        overflow: hidden;
-      }
-
-      .product-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .product-card:hover .product-image img {
-        transform: scale(1.05);
-      }
-
-      .product-details {
-        padding: 20px;
-        text-align: center;
-      }
-
-      .product-name {
-        font-size: 20px;
-        margin-bottom: 10px;
-        color: var(--primary-dark);
-      }
-
-      .product-description {
-        color: var(--text-light);
-        margin-bottom: 15px;
-        font-size: 14px;
-      }
-
-      .product-price {
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 15px;
-      }
-
-      /* Testimonials */
-      .testimonials {
-        background: var(--white);
-      }
-
-      .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-
-      .testimonial-card {
-        background: var(--secondary);
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      }
-
-      .testimonial-text {
-        font-style: italic;
-        margin-bottom: 20px;
-        position: relative;
-      }
-
-      .testimonial-text::before {
-        content: "“";
-        font-size: 60px;
-        color: var(--primary);
-        opacity: 0.2;
-        position: absolute;
-        top: -20px;
-        left: -10px;
-      }
-
-      .testimonial-author {
-        display: flex;
-        align-items: center;
-      }
-
-      .author-img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: #ddd;
-        margin-right: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: #777;
-      }
-
-      /* How to Use Section */
-      .usage {
-        background: var(--secondary);
-      }
-
-      .steps {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        text-align: center;
-      }
-
-      .step {
-        padding: 30px;
-      }
-
-      .step-icon {
-        font-size: 40px;
-        color: var(--primary);
-        margin-bottom: 20px;
-      }
-
-      .step h3 {
-        margin-bottom: 15px;
-        color: var(--primary-dark);
-      }
-
-      /* FAQ Section */
-      .faq {
-        background: var(--white);
-      }
-
-      .faq-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .faq-item {
-        background: var(--secondary);
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      }
-
-      .faq-question {
-        padding: 20px;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .faq-answer {
-        padding: 0 20px 20px;
-        color: var(--text-light);
-      }
-
-      /* CTA Section */
-      .cta {
-        text-align: center;
-        background: linear-gradient(
-          135deg,
-          var(--primary) 0%,
-          var(--primary-dark) 100%
-        );
-        color: var(--white);
-      }
-
-      .cta h2 {
-        margin-bottom: 20px;
-        font-size: 36px;
-      }
-
-      .cta p {
-        max-width: 600px;
-        margin: 0 auto 30px;
-        font-size: 18px;
-        opacity: 0.9;
-      }
-
-      .cta .btn {
-        background: var(--white);
-        color: var(--primary);
-      }
-
-      .cta .btn:hover {
-        background: #f0f0f0;
-      }
-
-      /* Footer */
-      footer {
-        background: var(--primary-dark);
-        color: var(--white);
-        padding: 60px 0 30px;
-      }
-
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-      }
-
-      .footer-column h3 {
-        margin-bottom: 20px;
-        font-size: 18px;
-      }
-
-      .footer-column ul {
-        list-style: none;
-      }
-
-      .footer-column ul li {
-        margin-bottom: 10px;
-      }
-
-      .footer-column a {
-        color: #ccc;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-column a:hover {
-        color: var(--white);
-      }
-
-      .social-links {
-        display: flex;
-        gap: 15px;
-      }
-
-      .social-links a {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        text-align: center;
-        line-height: 40px;
-        transition: background 0.3s;
-      }
-
-      .social-links a:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      .copyright {
-        text-align: center;
-        padding-top: 30px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        color: #ccc;
-      }
-
-      /* Modal Styles */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1001;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-      }
-
-      .modal-content {
-        background-color: #fefefe;
-        padding: 30px;
-        border-radius: 10px;
-        width: 90%;
-        max-width: 600px;
-        max-height: 90vh; /* Set a max height for the modal content */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        position: relative;
-        animation: fadeIn 0.3s;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .modal-body {
-        flex-grow: 1; /* Allow this section to grow */
-        overflow-y: auto; /* Add vertical scrolling */
-        padding-right: 15px; /* Add some space for the scrollbar */
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .modal-close-btn {
-        color: #aaa;
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.2s;
-      }
-
-      .modal-close-btn:hover,
-      .modal-close-btn:focus {
-        color: #000;
-      }
-      /* New styles for the updated checkout section */
-      .cart-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #ddd;
-      }
-
-      .item-details {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .item-quantity-controls {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .item-quantity-controls button {
-        background: #f4f4f4;
-        border: 1px solid #ccc;
-        padding: 2px 6px;
-        cursor: pointer;
-        font-size: 14px;
-        border-radius: 4px;
-      }
-
-      .item-quantity-controls .delete-btn {
-        color: #fff;
-        background: #e74c3c;
-        border-color: #e74c3c;
-        font-size: 12px;
-      }
-
-      .item-quantity-controls .delete-btn:hover {
-        background: #c0392b;
-      }
-
-      .promocode-section {
-        display: flex;
-        gap: 10px;
-        margin: 20px 0;
-      }
-
-      .promocode-section input {
-        flex: 1;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-
-      .promocode-section button {
-        background-color: #27ae60;
-        color: #fff;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .promocode-section button:hover {
-        background-color: #2ecc71;
-      }
-
-      .promocode-message {
-        font-size: 14px;
-        margin-top: 5px;
-        text-align: center;
-      }
-
-      .promocode-message.success {
-        color: #27ae60;
-      }
-
-      .promocode-message.error {
-        color: #e74c3c;
-      }
-
-      .summary-line {
-        display: flex;
-        justify-content: space-between;
-        padding: 5px 0;
-        border-top: 1px solid #ddd;
-      }
-
-      .summary-line.discount-line {
-        border-top: none;
-      }
-
-      .summary-line.total-line {
-        font-weight: bold;
-        font-size: 1.2rem;
-        border-top: 2px solid #4b3832;
-        padding-top: 10px;
-      }
-
-      .checkout-form {
-        margin-top: 20px;
-      }
-
-      .checkout-form h3 {
-        margin-bottom: 10px;
-      }
-
-      .checkout-form label,
-      .checkout-form input,
-      .checkout-form textarea {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-      }
-
-      .checkout-form input,
-      .checkout-form textarea {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-
-      .checkout-note {
-        margin-top: 20px;
-      }
-
-      .checkout-note p {
-        margin-bottom: 5px;
-      }
-
-      .share-buttons {
-        text-align: center;
-        margin-top: 20px;
-      }
-
-      .whatsapp-btn {
-        background-color: #25d366;
-        color: #fff;
-        padding: 12px 25px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1rem;
-        font-weight: bold;
-        transition: background-color 0.3s;
-      }
-
-      .whatsapp-btn:hover {
-        background-color: #128c7e;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 968px) {
-        .about-content {
-          grid-template-columns: 1fr;
-          text-align: center;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Poppins', sans-serif; */
+            font-family: "Playfair Display", serif;
         }
 
-        .hero h1 {
-          font-size: 36px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .nav-links {
-          /* Initially hide the navigation links */
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 100%; /* Position below the header */
-          right: 0;
-          width: 100%;
-          background-color: var(--white);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-          padding: 20px 0;
-          z-index: 999;
+        :root {
+            --primary: #f2d2c7;
+            /* A soft, warm light pink, serving as the new main color */
+            --primary-dark: #b8988d;
+            /* A muted rose-taupe for deeper accents and states */
+            --secondary: #fdf6f2;
+            /* An airy, off-white for clean backgrounds */
+            --accent: #d8a0a9;
+            /* A slightly darker dusty rose for highlights and calls to action */
+            --text: #5a4e47;
+            /* A warm, dark brown for excellent readability */
+            --text-light: #9c9189;
+            /* A light, soft taupe for subtle details and secondary text */
+            --white: #ffffff;
+            /* Pure white for elements that need a crisp, clean break */
         }
 
-        .nav-links.active {
-          /* Show the navigation links when the 'active' class is present */
-          display: flex;
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
         }
 
-        .mobile-controls {
-          display: flex; /* Show the cart icon and hamburger menu on mobile */
-          align-items: center;
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
-        .menu-toggle {
-          display: block; /* Show the hamburger menu icon on mobile */
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
-        .cart-icon {
-          display: block;
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
         }
 
         .section {
-          padding: 60px 0;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            /* Needed for positioning the mobile menu */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cart-icon,
+        .menu-toggle {
+            position: relative;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .cart-icon i,
+        .menu-toggle i {
+            color: var(--primary-dark);
+        }
+
+        .cart-icon:hover i,
+        .menu-toggle:hover i {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Mobile Menu Button & Cart Icon Grouping */
+        .mobile-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            /* Space between cart and hamburger */
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--secondary) 0%, #f5f0e1 100%);
+            text-align: center;
         }
 
         .hero h1 {
-          font-size: 32px;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .about-text h2 {
-          font-size: 28px;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
         }
-      }
 
-      .powered-by {
-        margin-top: 10px;
-        font-size: 12px;
-        color: #ccc;
-      }
+        .about-features {
+            list-style: none;
+            margin: 20px 0;
+        }
 
-      .powered-by a {
-        color: #4a6cf7;
-        text-decoration: none;
-        font-weight: 600;
-      }
+        .about-features li {
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
 
-      .bundles-section {
-        margin-top: 50px; /* Adjust the value as needed */
-      }
+        .about-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 18px;
+        }
 
-      .product-card .product-image {
-        width: 100%;
-        height: 400px;
-        overflow: hidden;
-      }
+        /* Products Section */
+        .products {
+            background: var(--secondary);
+        }
 
-      .product-card .product-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-      .about-slider {
-        position: relative;
-        width: 100%;
-        height: 100%; /* Ensures the slider fills its container */
-      }
+        .product-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
 
-      .slider-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transition: opacity 1.5s ease-in-out;
-      }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
 
-      .slider-image.active {
-        opacity: 1;
-      }
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-details {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: "“";
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #777;
+        }
+
+        /* How to Use Section */
+        .usage {
+            background: var(--secondary);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step {
+            padding: 30px;
+        }
+
+        .step-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg,
+                    var(--primary) 0%,
+                    var(--primary-dark) 100%);
+            color: var(--white);
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .cta .btn:hover {
+            background: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            /* Set a max height for the modal content */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeIn 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-body {
+            flex-grow: 1;
+            /* Allow this section to grow */
+            overflow-y: auto;
+            /* Add vertical scrolling */
+            padding-right: 15px;
+            /* Add some space for the scrollbar */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close-btn:hover,
+        .modal-close-btn:focus {
+            color: #000;
+        }
+
+        /* New styles for the updated checkout section */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .item-quantity-controls button {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 2px 6px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        .item-quantity-controls .delete-btn {
+            color: #fff;
+            background: #e74c3c;
+            border-color: #e74c3c;
+            font-size: 12px;
+        }
+
+        .item-quantity-controls .delete-btn:hover {
+            background: #c0392b;
+        }
+
+        .promocode-section {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .promocode-section input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .promocode-section button {
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .promocode-section button:hover {
+            background-color: #2ecc71;
+        }
+
+        .promocode-message {
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .promocode-message.success {
+            color: #27ae60;
+        }
+
+        .promocode-message.error {
+            color: #e74c3c;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .summary-line.discount-line {
+            border-top: none;
+        }
+
+        .summary-line.total-line {
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-top: 2px solid #4b3832;
+            padding-top: 10px;
+        }
+
+        .checkout-form {
+            margin-top: 20px;
+        }
+
+        .checkout-form h3 {
+            margin-bottom: 10px;
+        }
+
+        .checkout-form label,
+        .checkout-form input,
+        .checkout-form textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .checkout-form input,
+        .checkout-form textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .checkout-note {
+            margin-top: 20px;
+        }
+
+        .checkout-note p {
+            margin-bottom: 5px;
+        }
+
+        .share-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128c7e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                /* Initially hide the navigation links */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                /* Position below the header */
+                right: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                /* Show the navigation links when the 'active' class is present */
+                display: flex;
+            }
+
+            .mobile-controls {
+                display: flex;
+                /* Show the cart icon and hamburger menu on mobile */
+                align-items: center;
+            }
+
+            .menu-toggle {
+                display: block;
+                /* Show the hamburger menu icon on mobile */
+            }
+
+            .cart-icon {
+                display: block;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-text h2 {
+                font-size: 28px;
+            }
+        }
+
+        .powered-by {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .powered-by a {
+            color: #4a6cf7;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bundles-section {
+            margin-top: 50px;
+            /* Adjust the value as needed */
+        }
+
+        .product-card .product-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .product-card .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .about-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* Ensures the slider fills its container */
+        }
+
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slider-image.active {
+            opacity: 1;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <div class="container">
-        <nav>
-          <a href="#" class="logo">PAD'OR</a>
-          <ul class="nav-links" id="mobileNavLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-          <div class="mobile-controls">
-            <div class="cart-icon" id="openCartBtn">
-              <a href="#"><i class="fas fa-shopping-cart"></i></a>
-              <span class="cart-count">0</span>
-            </div>
-            <div class="menu-toggle" id="mobileMenuToggle">
-              <i class="fas fa-bars"></i>
-            </div>
-          </div>
-        </nav>
-      </div>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">PAD'OR</a>
+                <ul class="nav-links" id="mobileNavLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <div class="mobile-controls">
+                    <div class="cart-icon" id="openCartBtn">
+                        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <div class="menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <section class="hero">
-      <div class="container">
-        <h1>Elevate Your Glow with PAD'OR</h1>
-        <p>
-          Discover our signature collection of body care essentials, crafted to
-          give your skin the silky touch it deserves.
-        </p>
-        <a href="#products" class="btn">Shop The Collection</a>
-      </div>
+        <div class="container">
+            <h1>Elevate Your Glow with PAD'OR</h1>
+            <p>
+                Discover our signature collection of body care essentials, crafted to
+                give your skin the silky touch it deserves.
+            </p>
+            <a href="#products" class="btn">Shop The Collection</a>
+        </div>
     </section>
 
     <section id="about" class="section about">
-      <div class="container">
-        <div class="about-content">
-          <div class="about-image">
-            <img
-              src="img/golden-goddess-trio.png"
-              alt="Luxurious body care ingredients"
-            />
-          </div>
-          <div class="about-text">
-            <h2>The PAD'OR Philosophy</h2>
-            <p>
-              At PAD'OR, we believe true beauty is a reflection of well-being.
-              Our collection is meticulously crafted with the finest ingredients
-              to give your skin a silky, radiant touch. We blend nature with
-              luxury, creating a self-care experience that feels as good as it
-              looks.
-            </p>
-            <ul class="about-features">
-              <li>Crafted with Natural, Nourishing Oils</li>
-              <li>Sustainably Sourced & Cruelty-Free</li>
-              <li>Designed to Enhance Your Natural Glow</li>
-              <li>Made with Passion in Lebanon</li>
-            </ul>
-            <a href="#products" class="btn">Discover Our Story</a>
-          </div>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/golden-goddess-trio.png" alt="Luxurious body care ingredients" />
+                </div>
+                <div class="about-text">
+                    <h2>The PAD'OR Philosophy</h2>
+                    <p>
+                        At PAD'OR, we believe true beauty is a reflection of well-being.
+                        Our collection is meticulously crafted with the finest ingredients
+                        to give your skin a silky, radiant touch. We blend nature with
+                        luxury, creating a self-care experience that feels as good as it
+                        looks.
+                    </p>
+                    <ul class="about-features">
+                        <li>Crafted with Natural, Nourishing Oils</li>
+                        <li>Sustainably Sourced & Cruelty-Free</li>
+                        <li>Designed to Enhance Your Natural Glow</li>
+                        <li>Made with Passion in Lebanon</li>
+                    </ul>
+                    <a href="#products" class="btn">Discover Our Story</a>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <section id="products" class="section products">
-      <div class="container">
-        <div class="section-title">
-          <h2>Our Signature Collection</h2>
-          <p>Curated essentials for your most radiant self.</p>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Signature Collection</h2>
+                <p>Curated essentials for your most radiant self.</p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-product-id="1" data-product-name="Body Lotion" data-product-price="14.00">
+                    <div class="product-image">
+                        <img src="img/lotion.png" alt="PAD'OR Hydrating Body Lotion" />
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">The Silky Touch Body Lotion</h3>
+                        <p class="product-description">
+                            A lightweight, luxurious lotion that melts into your skin,
+                            leaving it soft, smooth, and delicately scented.
+                        </p>
+                        <div class="product-price">$14.00</div>
+                        <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="2" data-product-name="Body Scrub" data-product-price="16.00">
+                    <div class="product-image">
+                        <img src="img/scrub.png" alt="PAD'OR Exfoliating Body Scrub" />
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">The Glow Body Scrub</h3>
+                        <p class="product-description">
+                            Polish your skin to perfection with this gentle exfoliating
+                            scrub, revealing a radiant, healthy-looking glow.
+                        </p>
+                        <div class="product-price">$16.00</div>
+                        <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="3" data-product-name="Tanning Oil" data-product-price="15.00">
+                    <div class="product-image">
+                        <img src="img/tanning.png" alt="PAD'OR Golden Tanning Oil" />
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">The Golden Tanning Oil</h3>
+                        <p class="product-description">
+                            Achieve a sun-kissed, golden tan while nourishing your skin with
+                            our hydrating and lightweight tanning oil.
+                        </p>
+                        <div class="product-price">$15.00</div>
+                        <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bundles-section">
+                <div class="section-title">
+                    <h2>Special Bundles</h2>
+                    <p>Unlock more glow and save with our exclusive sets.</p>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card" data-product-id="4" data-product-name="Silky Touch Duo" data-product-price="27.00">
+                        <div class="product-image">
+                            <img src="img/silky-touch.png" alt="PAD'OR Silky Touch Duo Bundle" />
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-name">Silky Touch Duo</h3>
+                            <p class="product-description">
+                                Our best-selling Body Lotion and Body Scrub in one perfect
+                                pair. The ultimate routine for incredibly smooth skin.
+                            </p>
+                            <div class="product-price">$27.00</div>
+                            <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-product-id="5" data-product-name="Golden Goddess Trio" data-product-price="42.00">
+                        <div class="product-image">
+                            <img src="img/golden-goddess-trio.png" alt="PAD'OR Golden Goddess Trio Bundle" />
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-name">Golden Goddess Trio</h3>
+                            <p class="product-description">
+                                Elevate your glow with the full collection. Includes our Body
+                                Lotion, Body Scrub, and Tanning Oil for a complete radiant
+                                routine.
+                            </p>
+                            <div class="product-price">$42.00</div>
+                            <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="products-grid">
-          <div
-            class="product-card"
-            data-product-id="1"
-            data-product-name="Body Lotion"
-            data-product-price="14.00"
-          >
-            <div class="product-image">
-              <img src="img/lotion.png" alt="PAD'OR Hydrating Body Lotion" />
-            </div>
-            <div class="product-details">
-              <h3 class="product-name">The Silky Touch Body Lotion</h3>
-              <p class="product-description">
-                A lightweight, luxurious lotion that melts into your skin,
-                leaving it soft, smooth, and delicately scented.
-              </p>
-              <div class="product-price">$14.00</div>
-              <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
-            </div>
-          </div>
-
-          <div
-            class="product-card"
-            data-product-id="2"
-            data-product-name="Body Scrub"
-            data-product-price="16.00"
-          >
-            <div class="product-image">
-              <img src="img/scrub.png" alt="PAD'OR Exfoliating Body Scrub" />
-            </div>
-            <div class="product-details">
-              <h3 class="product-name">The Glow Body Scrub</h3>
-              <p class="product-description">
-                Polish your skin to perfection with this gentle exfoliating
-                scrub, revealing a radiant, healthy-looking glow.
-              </p>
-              <div class="product-price">$16.00</div>
-              <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
-            </div>
-          </div>
-
-          <div
-            class="product-card"
-            data-product-id="3"
-            data-product-name="Tanning Oil"
-            data-product-price="15.00"
-          >
-            <div class="product-image">
-              <img src="img/tanning.png" alt="PAD'OR Golden Tanning Oil" />
-            </div>
-            <div class="product-details">
-              <h3 class="product-name">The Golden Tanning Oil</h3>
-              <p class="product-description">
-                Achieve a sun-kissed, golden tan while nourishing your skin with
-                our hydrating and lightweight tanning oil.
-              </p>
-              <div class="product-price">$15.00</div>
-              <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="bundles-section">
-          <div class="section-title">
-            <h2>Special Bundles</h2>
-            <p>Unlock more glow and save with our exclusive sets.</p>
-          </div>
-          <div class="products-grid">
-            <div
-              class="product-card"
-              data-product-id="4"
-              data-product-name="Silky Touch Duo"
-              data-product-price="27.00"
-            >
-              <div class="product-image">
-                <img
-                  src="img/silky-touch.png"
-                  alt="PAD'OR Silky Touch Duo Bundle"
-                />
-              </div>
-              <div class="product-details">
-                <h3 class="product-name">Silky Touch Duo</h3>
-                <p class="product-description">
-                  Our best-selling Body Lotion and Body Scrub in one perfect
-                  pair. The ultimate routine for incredibly smooth skin.
-                </p>
-                <div class="product-price">$27.00</div>
-                <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
-              </div>
-            </div>
-
-            <div
-              class="product-card"
-              data-product-id="5"
-              data-product-name="Golden Goddess Trio"
-              data-product-price="42.00"
-            >
-              <div class="product-image">
-                <img
-                  src="img/golden-goddess-trio.png"
-                  alt="PAD'OR Golden Goddess Trio Bundle"
-                />
-              </div>
-              <div class="product-details">
-                <h3 class="product-name">Golden Goddess Trio</h3>
-                <p class="product-description">
-                  Elevate your glow with the full collection. Includes our Body
-                  Lotion, Body Scrub, and Tanning Oil for a complete radiant
-                  routine.
-                </p>
-                <div class="product-price">$42.00</div>
-                <a href="#" class="btn add-to-cart-btn">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="testimonials" class="section testimonials">
-      <div class="container">
-        <div class="section-title">
-          <h2>From Our PAD'OR Family</h2>
-          <p>
-            Listen to what our community is saying about their glow journey.
-          </p>
+        <div class="container">
+            <div class="section-title">
+                <h2>From Our PAD'OR Family</h2>
+                <p>
+                    Listen to what our community is saying about their glow journey.
+                </p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "The Silky Touch Body Lotion is a game-changer! My skin has never
+                        felt so soft and hydrated, and the scent is absolutely divine."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Layla K.</h4>
+                            <p>Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "I’m obsessed with The Glow Body Scrub. It made my skin so smooth
+                        and ready for summer. It’s a must-have in my weekly routine!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Rania H.</h4>
+                            <p>Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "I used The Golden Tanning Oil for my vacation, and it gave me the
+                        most beautiful, natural-looking tan. It felt so nourishing, not
+                        greasy at all."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Nour F.</h4>
+                            <p>Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="testimonial-grid">
-          <div class="testimonial-card">
-            <p class="testimonial-text">
-              "The Silky Touch Body Lotion is a game-changer! My skin has never
-              felt so soft and hydrated, and the scent is absolutely divine."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-img">
-                <i class="fas fa-user"></i>
-              </div>
-              <div>
-                <h4>Layla K.</h4>
-                <p>Verified Customer</p>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <p class="testimonial-text">
-              "I’m obsessed with The Glow Body Scrub. It made my skin so smooth
-              and ready for summer. It’s a must-have in my weekly routine!"
-            </p>
-            <div class="testimonial-author">
-              <div class="author-img">
-                <i class="fas fa-user"></i>
-              </div>
-              <div>
-                <h4>Rania H.</h4>
-                <p>Verified Customer</p>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <p class="testimonial-text">
-              "I used The Golden Tanning Oil for my vacation, and it gave me the
-              most beautiful, natural-looking tan. It felt so nourishing, not
-              greasy at all."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-img">
-                <i class="fas fa-user"></i>
-              </div>
-              <div>
-                <h4>Nour F.</h4>
-                <p>Verified Customer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="section usage">
-      <div class="container">
-        <div class="section-title">
-          <h2>Your Routine for a Radiant Glow</h2>
-          <p>
-            Simple steps to achieve a luxurious, silky-soft feeling every day.
-          </p>
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Routine for a Radiant Glow</h2>
+                <p>
+                    Simple steps to achieve a luxurious, silky-soft feeling every day.
+                </p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>1. Polish with the Body Scrub</h3>
+                    <p>
+                        Apply to <strong>damp skin</strong> and gently massage in circular
+                        motions, focusing on rough areas. Rinse with warm water. Use 1-2
+                        times a week for a silky-smooth base.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-hand-holding-water"></i>
+                    </div>
+                    <h3>2. Hydrate with the Body Lotion</h3>
+                    <p>
+                        Apply a generous amount to <strong>clean, dry skin</strong>.
+                        Gently massage in circular motions until fully absorbed. Use daily
+                        for best results.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>3. Enhance with the Tanning Oil</h3>
+                    <p>
+                        Apply generously to
+                        <strong>clean, dry skin before sun exposure</strong>. Massage
+                        evenly in circular motions. Reapply regularly, especially after
+                        swimming, to maintain your golden glow.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="steps">
-          <div class="step">
-            <div class="step-icon">
-              <i class="fas fa-hand-sparkles"></i>
-            </div>
-            <h3>1. Polish with the Body Scrub</h3>
-            <p>
-              Apply to <strong>damp skin</strong> and gently massage in circular
-              motions, focusing on rough areas. Rinse with warm water. Use 1-2
-              times a week for a silky-smooth base.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-icon">
-              <i class="fas fa-hand-holding-water"></i>
-            </div>
-            <h3>2. Hydrate with the Body Lotion</h3>
-            <p>
-              Apply a generous amount to <strong>clean, dry skin</strong>.
-              Gently massage in circular motions until fully absorbed. Use daily
-              for best results.
-            </p>
-          </div>
-          <div class="step">
-            <div class="step-icon">
-              <i class="fas fa-sun"></i>
-            </div>
-            <h3>3. Enhance with the Tanning Oil</h3>
-            <p>
-              Apply generously to
-              <strong>clean, dry skin before sun exposure</strong>. Massage
-              evenly in circular motions. Reapply regularly, especially after
-              swimming, to maintain your golden glow.
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section id="faq" class="section faq">
-      <div class="container">
-        <div class="section-title">
-          <h2>Your Questions, Answered</h2>
-          <p>Find answers about our products and your order.</p>
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Questions, Answered</h2>
+                <p>Find answers about our products and your order.</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are the key benefits of using PAD'OR products?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Our collection is crafted to give your skin a luxurious, silky
+                        touch. The <strong>Body Scrub</strong> exfoliates for a radiant
+                        glow, the <strong>Body Lotion</strong> provides deep hydration,
+                        and the <strong>Tanning Oil</strong> helps you achieve a
+                        beautiful, natural tan while nourishing your skin.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Are your products suitable for all skin types?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we've formulated our products to be gentle and effective for
+                        all skin types, including sensitive skin. We use high-quality,
+                        nourishing ingredients like natural oils and avoid harsh
+                        chemicals.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Where are PAD'OR products made?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        All PAD'OR products are proudly
+                        <strong>Formulated in Lebanon</strong> with a passion for quality
+                        and local craftsmanship.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer delivery across Lebanon?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We offer cash on delivery service to all areas across
+                        Lebanon, including Beirut, Tripoli, and all other major cities and
+                        regions.
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="faq-grid">
-          <div class="faq-item">
-            <div class="faq-question">
-              What are the key benefits of using PAD'OR products?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              Our collection is crafted to give your skin a luxurious, silky
-              touch. The <strong>Body Scrub</strong> exfoliates for a radiant
-              glow, the <strong>Body Lotion</strong> provides deep hydration,
-              and the <strong>Tanning Oil</strong> helps you achieve a
-              beautiful, natural tan while nourishing your skin.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              Are your products suitable for all skin types?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              Yes, we've formulated our products to be gentle and effective for
-              all skin types, including sensitive skin. We use high-quality,
-              nourishing ingredients like natural oils and avoid harsh
-              chemicals.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              Where are PAD'OR products made?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              All PAD'OR products are proudly
-              <strong>Formulated in Lebanon</strong> with a passion for quality
-              and local craftsmanship.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              Do you offer delivery across Lebanon?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              Yes! We offer cash on delivery service to all areas across
-              Lebanon, including Beirut, Tripoli, and all other major cities and
-              regions.
-            </div>
-          </div>
-          </div>
-      </div>
     </section>
 
     <section class="section cta">
-      <div class="container">
-        <h2>Unlock Your Golden Glow.</h2>
-        <p>Your journey to beautifully soft and radiant skin starts here.</p>
-        <a href="#products" class="btn">Shop The Collection</a>
-      </div>
+        <div class="container">
+            <h2>Unlock Your Golden Glow.</h2>
+            <p>Your journey to beautifully soft and radiant skin starts here.</p>
+            <a href="#products" class="btn">Shop The Collection</a>
+        </div>
     </section>
 
     <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-column">
-            <h3>PAD'OR</h3>
-            <p>
-              Elevate your glow with our signature collection of body care
-              essentials, crafted with passion in Lebanon.
-            </p>
-          </div>
-          <div class="footer-column">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#products">Products</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#faq">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Contact Us</h3>
-            <ul>
-              <li><i class="fas fa-envelope"></i> Padorbeauty@gmail.com</li>
-              <li><i class="fas fa-phone"></i> +961 70 838 568</li>
-              <li><i class="fas fa-map-marker-alt"></i> Lebanon</li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Follow Us</h3>
-            <div class="social-links">
-              <a href="https://www.instagram.com/padorbeauty/" target="_blank"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a
-                href="https://www.facebook.com/profile.php?id=61578165718842"
-                target="_blank"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                href="https://www.tiktok.com/@padorbeauty2?_t=ZS-8zS1E2FdS8y&_r=1"
-                target="_blank"
-                ><i class="fab fa-tiktok"></i
-              ></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PAD'OR</h3>
+                    <p>
+                        Elevate your glow with our signature collection of body care
+                        essentials, crafted with passion in Lebanon.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> Padorbeauty@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +961 70 838 568</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Lebanon</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/padorbeauty/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61578165718842" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@padorbeauty2?_t=ZS-8zS1E2FdS8y&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="copyright">
+                <p>&copy; 2025 PAD'OR. All rights reserved.</p>
+                <p class="powered-by">
+                    Powered by
+                    <a href="https://thechillcreatives.com/" target="_blank">The Chill Creatives</a>
+                </p>
+            </div>
         </div>
-        <div class="copyright">
-          <p>&copy; 2025 PAD'OR. All rights reserved.</p>
-          <p class="powered-by">
-            Powered by
-            <a href="https://thechillcreatives.com/" target="_blank"
-              >The Chill Creatives</a
-            >
-          </p>
-        </div>
-      </div>
     </footer>
 
     <div id="cartModal" class="modal">
-      <div class="modal-content">
-        <span class="modal-close-btn" id="closeCartBtn">&times;</span>
-        <h2>Your Cart</h2>
+        <div class="modal-content">
+            <span class="modal-close-btn" id="closeCartBtn">&times;</span>
+            <h2>Your Cart</h2>
 
-        <div class="modal-body">
-          <div class="cart-items" id="cartItemsContainer">
+            <div class="modal-body">
+                <div class="cart-items" id="cartItemsContainer">
+                </div>
+
+                <div class="promocode-section">
+                    <input type="text" id="promocodeInput" placeholder="No offers available" disabled />
+                    <button id="applyPromocodeBtn" disabled>Apply</button>
+                    <p id="promocodeMessage" class="promocode-message">No active offers at this time.</p>
+                </div>
+
+                <div class="order-summary">
+                    <div class="summary-line">
+                        <span>Subtotal:</span>
+                        <span id="subtotalPrice">$0.00</span>
+                    </div>
+                    <div class="summary-line discount-line" style="display: none">
+                        <span>Discount (10%):</span>
+                        <span id="discountPrice">-$0.00</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <span>Total:</span>
+                        <span id="totalPrice">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="checkout-form">
+                    <h3>Customer Details</h3>
+                    <label for="customerNameInput">Name:</label>
+                    <input type="text" id="customerNameInput" placeholder="Enter your full name" required />
+
+                    <label for="customerPhoneInput">Phone Number:</label>
+                    <input type="tel" id="customerPhoneInput" placeholder="Enter your phone number" required />
+
+                    <label for="customerAddressInput">Address:</label>
+                    <textarea id="customerAddressInput" rows="3" placeholder="Enter your delivery address" required></textarea>
+                </div>
+
+                <div class="checkout-note">
+                    <h3>How to Complete Your Purchase</h3>
+                    <p>
+                        To finalize your order, you can choose between two easy payment
+                        methods:
+                    </p>
+                    <p>
+                        <strong>1. Whish Money:</strong> Settle your total amount via a
+                        Whish Money transfer.
+                    </p>
+                    <p>
+                        <strong>2. Cash on Delivery:</strong> Pay for your order with cash
+                        upon delivery.
+                    </p>
+                    <p>
+                        Once you place your order, a WhatsApp chat will open with us to
+                        confirm your details and provide the necessary payment
+                        information.
+                    </p>
+                </div>
             </div>
 
-          <div class="promocode-section">
-            <input type="text" id="promocodeInput" placeholder="No offers available" disabled />
-            <button id="applyPromocodeBtn" disabled>Apply</button>
-            <p id="promocodeMessage" class="promocode-message">No active offers at this time.</p>
-          </div>
-
-          <div class="order-summary">
-            <div class="summary-line">
-              <span>Subtotal:</span>
-              <span id="subtotalPrice">$0.00</span>
+            <div class="share-buttons">
+                <button id="placeOrderWhatsappBtn" class="btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Place Order
+                </button>
             </div>
-            <div class="summary-line discount-line" style="display: none">
-              <span>Discount (10%):</span>
-              <span id="discountPrice">-$0.00</span>
-            </div>
-            <div class="summary-line total-line">
-              <span>Total:</span>
-              <span id="totalPrice">$0.00</span>
-            </div>
-          </div>
-
-          <div class="checkout-form">
-            <h3>Customer Details</h3>
-            <label for="customerNameInput">Name:</label>
-            <input
-              type="text"
-              id="customerNameInput"
-              placeholder="Enter your full name"
-              required
-            />
-
-            <label for="customerPhoneInput">Phone Number:</label>
-            <input
-              type="tel"
-              id="customerPhoneInput"
-              placeholder="Enter your phone number"
-              required
-            />
-
-            <label for="customerAddressInput">Address:</label>
-            <textarea
-              id="customerAddressInput"
-              rows="3"
-              placeholder="Enter your delivery address"
-              required
-            ></textarea>
-          </div>
-
-          <div class="checkout-note">
-            <h3>How to Complete Your Purchase</h3>
-            <p>
-              To finalize your order, you can choose between two easy payment
-              methods:
-            </p>
-            <p>
-              <strong>1. Whish Money:</strong> Settle your total amount via a
-              Whish Money transfer.
-            </p>
-            <p>
-              <strong>2. Cash on Delivery:</strong> Pay for your order with cash
-              upon delivery.
-            </p>
-            <p>
-              Once you place your order, a WhatsApp chat will open with us to
-              confirm your details and provide the necessary payment
-              information.
-            </p>
-          </div>
         </div>
-
-        <div class="share-buttons">
-          <button id="placeOrderWhatsappBtn" class="btn whatsapp-btn">
-            <i class="fab fa-whatsapp"></i> Place Order
-          </button>
-        </div>
-      </div>
     </div>
 
     <script>
-    // ** IMPORTANT: REPLACE THIS URL with your own Google Apps Script Web App URL **
-    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwmj9PHfsTbo2ZIJzpOn1vPZRUEyTVN-B68XoVBwKUMdRsofghU0_CpddBLs42mRtfBHQ/exec';
+        // ** IMPORTANT: REPLACE THIS URL with your own Google Apps Script Web App URL **
+        const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwmj9PHfsTbo2ZIJzpOn1vPZRUEyTVN-B68XoVBwKUMdRsofghU0_CpddBLs42mRtfBHQ/exec';
 
-    // Function to handle adding items to the cart, now with quantity logic
-    const cartItems = [];
-    let promoApplied = false;
+        // Function to handle adding items to the cart, now with quantity logic
+        const cartItems = [];
+        let promoApplied = false;
 
-    function addItemToCart(item) {
-        const existingItem = cartItems.find(
-            (cartItem) => cartItem.name === item.name
-        );
+        function addItemToCart(item) {
+            const existingItem = cartItems.find(
+                (cartItem) => cartItem.name === item.name
+            );
 
-        if (existingItem) {
-            existingItem.quantity++;
-        } else {
-            cartItems.push({
-                ...item,
-                quantity: 1,
-            });
-        }
-        renderCart();
-    }
-
-    function renderCart() {
-        const cartContainer = document.getElementById("cartItemsContainer");
-        cartContainer.innerHTML = "";
-
-        let subtotal = 0;
-
-        if (cartItems.length === 0) {
-            cartContainer.innerHTML =
-                '<p style="text-align: center; color: var(--text-light);">Your cart is empty.</p>';
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({
+                    ...item,
+                    quantity: 1,
+                });
+            }
+            renderCart();
         }
 
-        cartItems.forEach((item) => {
-            const itemPrice = item.price * item.quantity;
-            subtotal += itemPrice;
+        function renderCart() {
+            const cartContainer = document.getElementById("cartItemsContainer");
+            cartContainer.innerHTML = "";
 
-            const cartItemDiv = document.createElement("div");
-            cartItemDiv.className = "cart-item";
-            cartItemDiv.innerHTML = `
+            let subtotal = 0;
+
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML =
+                    '<p style="text-align: center; color: var(--text-light);">Your cart is empty.</p>';
+            }
+
+            cartItems.forEach((item) => {
+                const itemPrice = item.price * item.quantity;
+                subtotal += itemPrice;
+
+                const cartItemDiv = document.createElement("div");
+                cartItemDiv.className = "cart-item";
+                cartItemDiv.innerHTML = `
             <div class="item-details">
                 <span>${item.name} ($${item.price.toFixed(2)})</span>
                 <div class="item-quantity-controls">
@@ -1425,323 +1376,326 @@
             </div>
             <span>$${itemPrice.toFixed(2)}</span>
         `;
-            cartContainer.appendChild(cartItemDiv);
-        });
-
-        updateOrderSummary(subtotal);
-        updateCartCount();
-
-        // Add event listeners for new buttons
-        document.querySelectorAll(".increase-quantity").forEach((button) => {
-            button.addEventListener("click", (e) => {
-                const itemName = e.target.dataset.name;
-                const item = cartItems.find((i) => i.name === itemName);
-                if (item) {
-                    item.quantity++;
-                    renderCart();
-                }
+                cartContainer.appendChild(cartItemDiv);
             });
-        });
 
-        document.querySelectorAll(".decrease-quantity").forEach((button) => {
-            button.addEventListener("click", (e) => {
-                const itemName = e.target.dataset.name;
-                const item = cartItems.find((i) => i.name === itemName);
-                if (item && item.quantity > 1) {
-                    item.quantity--;
-                    renderCart();
-                } else if (item && item.quantity === 1) {
-                    // If quantity is 1, delete the item
-                    const itemIndex = cartItems.findIndex(
-                        (i) => i.name === itemName
-                    );
+            updateOrderSummary(subtotal);
+            updateCartCount();
+
+            // Add event listeners for new buttons
+            document.querySelectorAll(".increase-quantity").forEach((button) => {
+                button.addEventListener("click", (e) => {
+                    const itemName = e.target.dataset.name;
+                    const item = cartItems.find((i) => i.name === itemName);
+                    if (item) {
+                        item.quantity++;
+                        renderCart();
+                    }
+                });
+            });
+
+            document.querySelectorAll(".decrease-quantity").forEach((button) => {
+                button.addEventListener("click", (e) => {
+                    const itemName = e.target.dataset.name;
+                    const item = cartItems.find((i) => i.name === itemName);
+                    if (item && item.quantity > 1) {
+                        item.quantity--;
+                        renderCart();
+                    } else if (item && item.quantity === 1) {
+                        // If quantity is 1, delete the item
+                        const itemIndex = cartItems.findIndex(
+                            (i) => i.name === itemName
+                        );
+                        if (itemIndex > -1) {
+                            cartItems.splice(itemIndex, 1);
+                            renderCart();
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll(".delete-btn").forEach((button) => {
+                button.addEventListener("click", (e) => {
+                    const itemName = e.target.dataset.name;
+                    const itemIndex = cartItems.findIndex((i) => i.name === itemName);
                     if (itemIndex > -1) {
                         cartItems.splice(itemIndex, 1);
                         renderCart();
                     }
-                }
+                });
             });
-        });
-
-        document.querySelectorAll(".delete-btn").forEach((button) => {
-            button.addEventListener("click", (e) => {
-                const itemName = e.target.dataset.name;
-                const itemIndex = cartItems.findIndex((i) => i.name === itemName);
-                if (itemIndex > -1) {
-                    cartItems.splice(itemIndex, 1);
-                    renderCart();
-                }
-            });
-        });
-    }
-
-    function updateOrderSummary(subtotal) {
-        let total = subtotal;
-        let discount = 0;
-
-        const discountLine = document.querySelector(".discount-line");
-        const promocodeMessage = document.getElementById("promocodeMessage");
-
-        if (promoApplied) {
-            discount = subtotal * 0.1;
-            total = subtotal - discount;
-            discountLine.style.display = "flex";
-            document.getElementById(
-                "discountPrice"
-            ).textContent = `-$${discount.toFixed(2)}`;
-            promocodeMessage.textContent = "Promo code applied!";
-            promocodeMessage.className = "promocode-message success";
-        } else {
-            discountLine.style.display = "none";
-            promocodeMessage.textContent = "";
-            promocodeMessage.className = "promocode-message";
         }
 
-        document.getElementById("subtotalPrice").textContent = `$${subtotal.toFixed(2)}`;
-        document.getElementById("totalPrice").textContent = `$${total.toFixed(2)}`;
-    }
+        function updateOrderSummary(subtotal) {
+            let total = subtotal;
+            let discount = 0;
 
-    function updateCartCount() {
-        const cartCount = document.querySelector(".cart-count");
-        const totalItems = cartItems.reduce(
-            (acc, item) => acc + item.quantity,
-            0
-        );
-        cartCount.textContent = totalItems;
-    }
-
-    // Event listener for promocode
-    document
-        .getElementById("applyPromocodeBtn")
-        .addEventListener("click", () => {
-            const promocodeInput = document
-                .getElementById("promocodeInput")
-                .value.trim()
-                .toUpperCase();
+            const discountLine = document.querySelector(".discount-line");
             const promocodeMessage = document.getElementById("promocodeMessage");
-            if (promocodeInput === "PADOR10") {
-                promoApplied = true;
-                renderCart();
+
+            if (promoApplied) {
+                discount = subtotal * 0.1;
+                total = subtotal - discount;
+                discountLine.style.display = "flex";
+                document.getElementById(
+                    "discountPrice"
+                ).textContent = `-$${discount.toFixed(2)}`;
+                promocodeMessage.textContent = "Promo code applied!";
+                promocodeMessage.className = "promocode-message success";
             } else {
-                promoApplied = false;
-                promocodeMessage.textContent = "Invalid promo code.";
-                promocodeMessage.className = "promocode-message error";
-                updateOrderSummary(
-                    cartItems.reduce(
-                        (acc, item) => acc + item.price * item.quantity,
-                        0
-                    )
-                );
+                discountLine.style.display = "none";
+                promocodeMessage.textContent = "";
+                promocodeMessage.className = "promocode-message";
             }
-        });
 
-    // Existing item buttons logic
-    const productButtons = document.querySelectorAll(".add-to-cart-btn");
-    productButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const productCard = button.closest(".product-card");
-            const productName = productCard.dataset.productName;
-            const productPrice = parseFloat(productCard.dataset.productPrice);
-            addItemToCart({
-                name: productName,
-                price: productPrice,
+            document.getElementById("subtotalPrice").textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById("totalPrice").textContent = `$${total.toFixed(2)}`;
+        }
+
+        function updateCartCount() {
+            const cartCount = document.querySelector(".cart-count");
+            const totalItems = cartItems.reduce(
+                (acc, item) => acc + item.quantity,
+                0
+            );
+            cartCount.textContent = totalItems;
+        }
+
+        // Event listener for promocode
+        document
+            .getElementById("applyPromocodeBtn")
+            .addEventListener("click", () => {
+                const promocodeInput = document
+                    .getElementById("promocodeInput")
+                    .value.trim()
+                    .toUpperCase();
+                const promocodeMessage = document.getElementById("promocodeMessage");
+                if (promocodeInput === "PADOR10") {
+                    promoApplied = true;
+                    renderCart();
+                } else {
+                    promoApplied = false;
+                    promocodeMessage.textContent = "Invalid promo code.";
+                    promocodeMessage.className = "promocode-message error";
+                    updateOrderSummary(
+                        cartItems.reduce(
+                            (acc, item) => acc + item.price * item.quantity,
+                            0
+                        )
+                    );
+                }
+            });
+
+        // Existing item buttons logic
+        const productButtons = document.querySelectorAll(".add-to-cart-btn");
+        productButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const productCard = button.closest(".product-card");
+                const productName = productCard.dataset.productName;
+                const productPrice = parseFloat(productCard.dataset.productPrice);
+                addItemToCart({
+                    name: productName,
+                    price: productPrice,
+                });
             });
         });
-    });
 
-    // New function to send data to Google Sheets
-    async function sendDataToGoogleSheet(orderData) {
-        try {
-            const response = await fetch(GAS_WEB_APP_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Use 'no-cors' mode for this type of request
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(orderData),
-            });
-            // You can't read the response in 'no-cors' mode, but the request will be sent
-            console.log("Data sent to Google Sheets via Apps Script.");
-        } catch (error) {
-            console.error("Error sending data to Google Sheets:", error);
-        }
-    }
-
-
-    // Original WhatsApp order function updated
-    function generateOrderMessage() {
-        const customerNameInput = document.getElementById("customerNameInput");
-        const customerPhoneInput = document.getElementById("customerPhoneInput");
-        const customerAddressInput = document.getElementById(
-            "customerAddressInput"
-        );
-
-        const name = customerNameInput.value.trim();
-        const phone = customerPhoneInput.value.trim();
-        const address = customerAddressInput.value.trim();
-
-        if (cartItems.length === 0) {
-            return "My shopping cart from PAD'OR is empty. Time to shop!";
+        // New function to send data to Google Sheets
+        async function sendDataToGoogleSheet(orderData) {
+            try {
+                const response = await fetch(GAS_WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Use 'no-cors' mode for this type of request
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(orderData),
+                });
+                // You can't read the response in 'no-cors' mode, but the request will be sent
+                console.log("Data sent to Google Sheets via Apps Script.");
+            } catch (error) {
+                console.error("Error sending data to Google Sheets:", error);
+            }
         }
 
-        if (!name || !phone || !address) {
-            customerNameInput.style.border = "2px solid red";
-            customerPhoneInput.style.border = "2px solid red";
-            customerAddressInput.style.border = "2px solid red";
-            return null;
-        }
 
-        let message = `**New PAD'OR Order**\n\n`;
-        message += `**Customer Details:**\n`;
-        message += `Name: ${name}\n`;
-        message += `Phone: ${phone}\n`;
-        message += `Address: ${address}\n\n`;
+        // Original WhatsApp order function updated
+        function generateOrderMessage() {
+            const customerNameInput = document.getElementById("customerNameInput");
+            const customerPhoneInput = document.getElementById("customerPhoneInput");
+            const customerAddressInput = document.getElementById(
+                "customerAddressInput"
+            );
 
-        message += `**Order Items:**\n`;
-        let subtotal = 0;
-        let total = 0;
-        let discount = 0;
+            const name = customerNameInput.value.trim();
+            const phone = customerPhoneInput.value.trim();
+            const address = customerAddressInput.value.trim();
 
-        cartItems.forEach((item) => {
-            const itemPrice = item.price * item.quantity;
-            message += `- ${item.name} x${item.quantity} - $${itemPrice.toFixed(
+            if (cartItems.length === 0) {
+                return "My shopping cart from PAD'OR is empty. Time to shop!";
+            }
+
+            if (!name || !phone || !address) {
+                customerNameInput.style.border = "2px solid red";
+                customerPhoneInput.style.border = "2px solid red";
+                customerAddressInput.style.border = "2px solid red";
+                return null;
+            }
+
+            let message = `**New PAD'OR Order**\n\n`;
+            message += `**Customer Details:**\n`;
+            message += `Name: ${name}\n`;
+            message += `Phone: ${phone}\n`;
+            message += `Address: ${address}\n\n`;
+
+            message += `**Order Items:**\n`;
+            let subtotal = 0;
+            let total = 0;
+            let discount = 0;
+
+            cartItems.forEach((item) => {
+                const itemPrice = item.price * item.quantity;
+                message += `- ${item.name} x${item.quantity} - $${itemPrice.toFixed(
                 2
             )}\n`;
-            subtotal += itemPrice;
-        });
+                subtotal += itemPrice;
+            });
 
-        if (promoApplied) {
-            discount = subtotal * 0.1;
-            total = subtotal - discount;
-            message += `\nSubtotal: $${subtotal.toFixed(2)}\n`;
-            message += `Discount (PADOR10): -$${discount.toFixed(2)}\n`;
-        } else {
-            total = subtotal;
+            if (promoApplied) {
+                discount = subtotal * 0.1;
+                total = subtotal - discount;
+                message += `\nSubtotal: $${subtotal.toFixed(2)}\n`;
+                message += `Discount (PADOR10): -$${discount.toFixed(2)}\n`;
+            } else {
+                total = subtotal;
+            }
+
+            message += `\n**Total:** $${total.toFixed(2)}\n\n`;
+            message += `**Please confirm your payment method (Whish Money or Cash on Delivery) in the chat.**`;
+
+            return encodeURIComponent(message);
         }
 
-        message += `\n**Total:** $${total.toFixed(2)}\n\n`;
-        message += `**Please confirm your payment method (Whish Money or Cash on Delivery) in the chat.**`;
-
-        return encodeURIComponent(message);
-    }
-
-    const placeOrderWhatsappBtn = document.getElementById(
-        "placeOrderWhatsappBtn"
-    );
-    placeOrderWhatsappBtn.addEventListener("click", async (e) => {
-        e.preventDefault();
-
-        const customerNameInput = document.getElementById("customerNameInput");
-        const customerPhoneInput = document.getElementById("customerPhoneInput");
-        const customerAddressInput = document.getElementById("customerAddressInput");
-
-        const name = customerNameInput.value.trim();
-        const phone = customerPhoneInput.value.trim();
-        const address = customerAddressInput.value.trim();
-
-        // Check for required fields and cart
-        if (cartItems.length === 0 || !name || !phone || !address) {
-            // Highlight fields if they are empty
-            if (!name) customerNameInput.style.border = "2px solid red";
-            if (!phone) customerPhoneInput.style.border = "2px solid red";
-            if (!address) customerAddressInput.style.border = "2px solid red";
-            return;
-        }
-
-        // Gather all data to send
-        const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-        const discount = promoApplied ? subtotal * 0.1 : 0;
-        const total = subtotal - discount;
-
-        const orderData = {
-            customerName: name,
-            customerPhone: phone,
-            customerAddress: address,
-            cartItems: cartItems,
-            subtotal: subtotal.toFixed(2),
-            discount: discount.toFixed(2),
-            total: total.toFixed(2),
-            promoApplied: promoApplied
-        };
-
-        // Send data to Google Sheets first
-        await sendDataToGoogleSheet(orderData);
-
-        // Then, generate and open the WhatsApp message
-        const message = generateOrderMessage();
-        window.open(`https://wa.me/96170838568?text=${message}`, "_blank");
-    });
-
-    // Existing modal logic
-    const openCartBtn = document.getElementById("openCartBtn");
-    const cartModal = document.getElementById("cartModal");
-    const closeCartBtn = document.getElementById("closeCartBtn");
-
-    openCartBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        cartModal.style.display = "flex";
-        renderCart();
-    });
-
-    closeCartBtn.addEventListener("click", () => {
-        cartModal.style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-        if (e.target === cartModal) {
-            cartModal.style.display = "none";
-        }
-    });
-
-    // Simple JavaScript for header scroll effect
-    window.addEventListener("scroll", function () {
-        const header = document.querySelector("header");
-        if (window.scrollY > 50) {
-            header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
-            header.style.background = "#fff";
-        } else {
-            header.style.boxShadow = "none";
-            header.style.background = "#fff";
-        }
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
+        const placeOrderWhatsappBtn = document.getElementById(
+            "placeOrderWhatsappBtn"
+        );
+        placeOrderWhatsappBtn.addEventListener("click", (e) => {
             e.preventDefault();
 
-            const targetId = this.getAttribute("href");
-            if (targetId === "#") return;
+            const customerNameInput = document.getElementById("customerNameInput");
+            const customerPhoneInput = document.getElementById("customerPhoneInput");
+            const customerAddressInput = document.getElementById("customerAddressInput");
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: "smooth",
-                });
+            const name = customerNameInput.value.trim();
+            const phone = customerPhoneInput.value.trim();
+            const address = customerAddressInput.value.trim();
+
+            // Check for required fields and cart
+            if (cartItems.length === 0 || !name || !phone || !address) {
+                // Highlight fields if they are empty
+                if (!name) customerNameInput.style.border = "2px solid red";
+                if (!phone) customerPhoneInput.style.border = "2px solid red";
+                if (!address) customerAddressInput.style.border = "2px solid red";
+                return;
+            }
+
+            // Generate message FIRST
+            const message = generateOrderMessage();
+
+            // Open WhatsApp IMMEDIATELY (synchronously)
+            window.open(`https://wa.me/96170838568?text=${message}`, "_blank");
+
+            // Then send data to Google Sheets (asynchronously, don't wait for it)
+            const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+            const discount = promoApplied ? subtotal * 0.1 : 0;
+            const total = subtotal - discount;
+
+            const orderData = {
+                customerName: name,
+                customerPhone: phone,
+                customerAddress: address,
+                cartItems: cartItems,
+                subtotal: subtotal.toFixed(2),
+                discount: discount.toFixed(2),
+                total: total.toFixed(2),
+                promoApplied: promoApplied
+            };
+
+            // Send data without waiting for response
+            sendDataToGoogleSheet(orderData);
+        });
+
+        // Existing modal logic
+        const openCartBtn = document.getElementById("openCartBtn");
+        const cartModal = document.getElementById("cartModal");
+        const closeCartBtn = document.getElementById("closeCartBtn");
+
+        openCartBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            cartModal.style.display = "flex";
+            renderCart();
+        });
+
+        closeCartBtn.addEventListener("click", () => {
+            cartModal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === cartModal) {
+                cartModal.style.display = "none";
             }
         });
-    });
 
-    // Simple FAQ toggle
-    document.querySelectorAll(".faq-question").forEach((question) => {
-        question.addEventListener("click", () => {
-            const answer = question.nextElementSibling;
-            answer.style.display =
-                answer.style.display === "block" ? "none" : "block";
+        // Simple JavaScript for header scroll effect
+        window.addEventListener("scroll", function() {
+            const header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+                header.style.background = "#fff";
+            } else {
+                header.style.boxShadow = "none";
+                header.style.background = "#fff";
+            }
         });
-    });
 
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-    const mobileNavLinks = document.getElementById("mobileNavLinks");
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function(e) {
+                e.preventDefault();
 
-    mobileMenuToggle.addEventListener("click", () => {
-        mobileNavLinks.classList.toggle("active");
-    });
+                const targetId = this.getAttribute("href");
+                if (targetId === "#") return;
 
-    // Initial render
-    renderCart();
-</script>
-  </body>
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+
+        // Simple FAQ toggle
+        document.querySelectorAll(".faq-question").forEach((question) => {
+            question.addEventListener("click", () => {
+                const answer = question.nextElementSibling;
+                answer.style.display =
+                    answer.style.display === "block" ? "none" : "block";
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+        const mobileNavLinks = document.getElementById("mobileNavLinks");
+
+        mobileMenuToggle.addEventListener("click", () => {
+            mobileNavLinks.classList.toggle("active");
+        });
+
+        // Initial render
+        renderCart();
+    </script>
+</body>
+
 </html>
