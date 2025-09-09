@@ -867,7 +867,28 @@
         .slider-image.active {
             opacity: 1;
         }
+
+        /* reCAPTCHA responsive styling */
+        .recaptcha-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 400px) {
+            .g-recaptcha {
+                transform: scale(0.85);
+                transform-origin: center;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .g-recaptcha {
+                transform: scale(0.75);
+                transform-origin: center;
+            }
+        }
     </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -1307,6 +1328,11 @@
                         information.
                     </p>
                 </div>
+
+                <!-- Add reCAPTCHA widget here -->
+                <div class="recaptcha-container" style="margin: 20px 0; text-align: center;">
+                    <div class="g-recaptcha" data-sitekey="6LeHssMrAAAAABDVdJzKTnxd5S6WfJZuO0ceD1EE"></div>
+                </div>
             </div>
 
             <div class="share-buttons">
@@ -1324,6 +1350,23 @@
         // Function to handle adding items to the cart, now with quantity logic
         const cartItems = [];
         let promoApplied = false;
+
+        // Security functions - ADD THESE
+        let lastOrderTime = 0;
+        const ORDER_DELAY = 10000; // 10 seconds between orders
+
+        function validateName(name) {
+            return /^[a-zA-Z\s]{2,50}$/.test(name);
+        }
+
+        function validatePhone(phone) {
+            // Lebanese phone number validation (starts with 03, 70, 71, 76, 78, 79, 81)
+            return /^(\+?961|0)?(3|70|71|76|78|79|81)\d{6}$/.test(phone.replace(/\s/g, ''));
+        }
+
+        function validateAddress(address) {
+            return address.length >= 5 && address.length <= 200;
+        }
 
         function addItemToCart(item) {
             const existingItem = cartItems.find(
@@ -1503,14 +1546,21 @@
         // New function to send data to Google Sheets
         async function sendDataToGoogleSheet(orderData) {
             try {
+                // Get the reCAPTCHA token
+                const recaptchaToken = grecaptcha.getResponse();
+
+                // Add it to your order data
+                orderData.recaptchaToken = recaptchaToken;
+
                 const response = await fetch(GAS_WEB_APP_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Use 'no-cors' mode for this type of request
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(orderData),
                 });
+
                 // You can't read the response in 'no-cors' mode, but the request will be sent
                 console.log("Data sent to Google Sheets via Apps Script.");
             } catch (error) {
@@ -1582,6 +1632,23 @@
         placeOrderWhatsappBtn.addEventListener("click", (e) => {
             e.preventDefault();
 
+            // Rate limiting
+            const currentTime = Date.now();
+            if (currentTime - lastOrderTime < ORDER_DELAY) {
+                alert("Please wait a moment before placing another order.");
+                return;
+            }
+            lastOrderTime = currentTime;
+
+            // reCAPTCHA validation
+            if (typeof grecaptcha !== 'undefined') {
+                const recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    alert("Please complete the reCAPTCHA verification.");
+                    return;
+                }
+            }
+
             const customerNameInput = document.getElementById("customerNameInput");
             const customerPhoneInput = document.getElementById("customerPhoneInput");
             const customerAddressInput = document.getElementById("customerAddressInput");
@@ -1590,12 +1657,34 @@
             const phone = customerPhoneInput.value.trim();
             const address = customerAddressInput.value.trim();
 
+            // Input validation
+            if (!validateName(name)) {
+                alert("Please enter a valid name (2-50 characters, letters only)");
+                customerNameInput.style.border = "2px solid red";
+                return;
+            } else {
+                customerNameInput.style.border = "";
+            }
+
+            if (!validatePhone(phone)) {
+                alert("Please enter a valid Lebanese phone number (e.g., 03123456, 70123456, +9613123456)");
+                customerPhoneInput.style.border = "2px solid red";
+                return;
+            } else {
+                customerPhoneInput.style.border = "";
+            }
+
+            if (!validateAddress(address)) {
+                alert("Please enter a valid address (5-200 characters)");
+                customerAddressInput.style.border = "2px solid red";
+                return;
+            } else {
+                customerAddressInput.style.border = "";
+            }
+
             // Check for required fields and cart
-            if (cartItems.length === 0 || !name || !phone || !address) {
-                // Highlight fields if they are empty
-                if (!name) customerNameInput.style.border = "2px solid red";
-                if (!phone) customerPhoneInput.style.border = "2px solid red";
-                if (!address) customerAddressInput.style.border = "2px solid red";
+            if (cartItems.length === 0) {
+                alert("Your cart is empty. Please add items before ordering.");
                 return;
             }
 
