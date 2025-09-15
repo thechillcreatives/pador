@@ -17,41 +17,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PAD'OR - Natural Skincare & Beauty Products in Lebanon</title>
     <meta name="description" content="Discover PAD'OR's natural and organic skincare products crafted in Lebanon. Shop our luxurious body lotions, scrubs, and tanning oils for a radiant glow. We offer cash on delivery in Beirut, Jounieh, and all of Lebanon.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet" />
     <style>
+        /* Reset and Base Styles */
         /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* font-family: 'Poppins', sans-serif; */
-            font-family: "Playfair Display", serif;
         }
 
         :root {
-            --primary: #f2d2c7;
-            /* A soft, warm light pink, serving as the new main color */
-            --primary-dark: #b8988d;
-            /* A muted rose-taupe for deeper accents and states */
-            --secondary: #fdf6f2;
-            /* An airy, off-white for clean backgrounds */
-            --accent: #d8a0a9;
-            /* A slightly darker dusty rose for highlights and calls to action */
-            --text: #5a4e47;
-            /* A warm, dark brown for excellent readability */
-            --text-light: #9c9189;
-            /* A light, soft taupe for subtle details and secondary text */
-            --white: #ffffff;
-            /* Pure white for elements that need a crisp, clean break */
+            --primary: #D4A59A;
+            --primary-dark: #9F796A;
+            --secondary: #FDF9F3;
+            --accent: #C28E7D;
+            --text: #555555;
+            --text-light: #AAAAAA;
+            --white: #FFFFFF;
+            /* --- New Font Variables --- */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Lato', sans-serif;
         }
 
         body {
+            font-family: var(--font-body);
+            /* Set default body font */
             color: var(--text);
             line-height: 1.6;
             background-color: var(--white);
+        }
+
+        /* --- Apply heading font to all headings and the logo --- */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .logo {
+            font-family: var(--font-heading);
         }
 
         .container {
@@ -91,13 +100,10 @@
         }
 
         .btn.added {
-            background-color: #27ae60;
-            /* A green color for 'added' status */
+            background-color: var(--accent);
             color: var(--white);
             transform: none;
-            /* Prevents the hover animation while active */
             pointer-events: none;
-            /* Disables clicks while the animation is active */
             transition: background-color 0.3s ease, transform 0s;
         }
 
@@ -168,8 +174,15 @@
             color: var(--primary);
         }
 
-        .cart-icon,
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
         .menu-toggle {
+            display: none;
+            /* Add this line to hide the button on desktop by default */
             position: relative;
             cursor: pointer;
             transition: color 0.3s ease;
@@ -208,17 +221,10 @@
             /* Space between cart and hamburger */
         }
 
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--primary-dark);
-        }
-
         /* Hero Section */
         .hero {
             padding: 150px 0 100px;
-                background: linear-gradient(135deg, #f282424d 0%, #f5f0e1 100%);
+            background-color: var(--secondary);
             text-align: center;
         }
 
@@ -344,7 +350,9 @@
 
         /* Testimonials */
         .testimonials {
-            background: var(--white);
+            background-color: var(--secondary);
+            padding: 80px 0;
+            text-align: center;
         }
 
         .testimonial-grid {
@@ -354,10 +362,12 @@
         }
 
         .testimonial-card {
-            background: var(--secondary);
-            padding: 30px;
+            background-color: var(--white);
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--text-light);
+            text-align: left;
         }
 
         .testimonial-text {
@@ -423,7 +433,25 @@
 
         /* FAQ Section */
         .faq {
-            background: var(--white);
+            background: var(--secondary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            background-color: var(--white);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--text-light);
+            border-top: none;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        }
+
+        .faq-answer p {
+            padding: 15px 0;
+            margin: 0;
+            color: var(--text);
         }
 
         .faq-grid {
@@ -435,33 +463,65 @@
         }
 
         .faq-item {
-            background: var(--secondary);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
         }
 
         .faq-question {
-            padding: 20px;
-            font-weight: 600;
             cursor: pointer;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid var(--text-light);
+            position: relative;
+            padding-right: 50px;
+            font-size: 18px;
+            transition: all 0.3s ease;
         }
 
-        .faq-answer {
-            padding: 0 20px 20px;
-            color: var(--text-light);
+        .faq-question:hover {
+            background-color: var(--secondary);
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 18px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 20px;
+            color: var(--primary);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            content: '-';
+            transform: translateY(-50%) rotate(0deg);
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+            /* Adjust this value if your answers are longer */
+            padding: 15px 20px;
         }
 
         /* CTA Section */
         .cta {
             text-align: center;
-            background: linear-gradient(135deg,
-                    var(--primary) 0%,
-                    var(--primary-dark) 100%);
-            color: var(--white);
+            background-color: var(--secondary);
+            color: var(--text);
         }
 
         .cta h2 {
@@ -477,12 +537,12 @@
         }
 
         .cta .btn {
-            background: var(--white);
-            color: var(--primary);
+            background: var(--primary);
+            color: var(--white);
         }
 
         .cta .btn:hover {
-            background: #f0f0f0;
+            background: var(--primary-dark);
         }
 
         /* Footer */
@@ -637,23 +697,37 @@
         }
 
         .item-quantity-controls button {
-            background: #f4f4f4;
-            border: 1px solid #ccc;
-            padding: 2px 6px;
+            background: var(--secondary);
+            color: var(--text);
+            border: none;
+            padding: 2px 8px;
             cursor: pointer;
-            font-size: 14px;
-            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .item-quantity-controls button:hover {
+            background-color: var(--text-light);
+            color: var(--white);
         }
 
         .item-quantity-controls .delete-btn {
-            color: #fff;
-            background: #e74c3c;
-            border-color: #e74c3c;
-            font-size: 12px;
+            background: transparent;
+            color: #e74c3c;
+            /* A standard red for delete actions */
+            border: none;
+            font-size: 18px;
         }
 
         .item-quantity-controls .delete-btn:hover {
-            background: #c0392b;
+            color: #c0392b;
         }
 
         .promocode-section {
@@ -670,8 +744,8 @@
         }
 
         .promocode-section button {
-            background-color: #27ae60;
-            color: #fff;
+            background-color: var(--primary);
+            color: var(--white);
             border: none;
             padding: 8px 15px;
             border-radius: 4px;
@@ -679,7 +753,7 @@
         }
 
         .promocode-section button:hover {
-            background-color: #2ecc71;
+            background-color: var(--primary-dark);
         }
 
         .promocode-message {
@@ -710,7 +784,7 @@
         .summary-line.total-line {
             font-weight: bold;
             font-size: 1.2rem;
-            border-top: 2px solid #4b3832;
+            border-top: 2px solid var(--primary-dark);
             padding-top: 10px;
         }
 
@@ -751,8 +825,8 @@
         }
 
         .whatsapp-btn {
-            background-color: #25d366;
-            color: #fff;
+            background-color: var(--primary);
+            color: var(--white);
             padding: 12px 25px;
             border: none;
             border-radius: 5px;
@@ -763,7 +837,43 @@
         }
 
         .whatsapp-btn:hover {
-            background-color: #128c7e;
+            background-color: var(--primary-dark);
+        }
+
+        .menu-toggle.active i::before {
+            content: "\f00d";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+
+        .about-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            /* This is the key fix */
+        }
+
+        .about-list .list-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            /* Ensures it fills the space and isn't centered */
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Scroll Animation Styles --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Design */
@@ -773,19 +883,36 @@
                 text-align: center;
             }
 
+            .about-list {
+                text-align: left;
+                /* Keep list items left-aligned */
+            }
+
             .hero h1 {
                 font-size: 36px;
             }
         }
 
         @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+                /* Reduce vertical padding on sections */
+            }
+
+            .hero h1,
+            .section-title h2,
+            .about-text h2,
+            .cta h2 {
+                font-size: 32px;
+                /* Make all major headings smaller */
+                line-height: 1.2;
+            }
+
             .nav-links {
-                /* Initially hide the navigation links */
                 display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 100%;
-                /* Position below the header */
                 right: 0;
                 width: 100%;
                 background-color: var(--white);
@@ -795,37 +922,117 @@
             }
 
             .nav-links.active {
-                /* Show the navigation links when the 'active' class is present */
                 display: flex;
             }
 
             .mobile-controls {
                 display: flex;
-                /* Show the cart icon and hamburger menu on mobile */
                 align-items: center;
             }
 
             .menu-toggle {
                 display: block;
-                /* Show the hamburger menu icon on mobile */
+                font-size: 24px;
+                cursor: pointer;
+                color: var(--primary-dark);
+                z-index: 1002;
+                transition: transform 0.3s ease;
+            }
+
+            .menu-toggle.active i {
+                transform: rotate(90deg);
             }
 
             .cart-icon {
                 display: block;
             }
 
-            .section {
-                padding: 60px 0;
+            .footer-content {
+                grid-template-columns: 1fr;
+                /* Stack footer columns */
+                text-align: center;
             }
 
-            .hero h1 {
-                font-size: 32px;
+            .footer-column ul {
+                padding-left: 0;
+                /* Remove default list padding */
             }
 
-            .about-text h2 {
-                font-size: 28px;
+            .social-links {
+                justify-content: center;
+                /* Center the social icons */
+            }
+
+            /* Improve modal on mobile for an app-like feel */
+            .modal-content {
+                width: 100%;
+                height: 100%;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: left;
+                padding-top: 20px;
+            }
+
+            .about-list {
+                padding: 0 20px;
+            }
+
+            .about-list .list-item {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 15px;
+                margin-bottom: 25px;
+                text-align: left;
+            }
+
+            .about-list .list-item i {
+                font-size: 20px;
+                color: var(--primary);
+                flex-shrink: 0;
+                padding-top: 4px;
+            }
+
+            .about-list .list-item p {
+                margin: 0;
+                text-align: left;
+                color: var(--text);
             }
         }
+
+        @media (max-width: 480px) {
+    .hero {
+        padding: 120px 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 12px 24px; /* Slightly smaller buttons */
+        font-size: 16px;
+    }
+
+    .product-details {
+        padding: 15px;
+    }
+
+    .testimonial-card {
+        padding: 20px;
+    }
+
+    .faq-question h3 {
+        font-size: 16px;
+    }
 
         .powered-by {
             margin-top: 10px;
@@ -896,6 +1103,44 @@
             .g-recaptcha {
                 transform: scale(0.75);
                 transform-origin: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: left;
+                padding-top: 20px;
+            }
+
+            .about-list {
+                padding: 0 20px;
+            }
+
+            .about-list .list-item {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 15px;
+                /* Creates the space you want between the icon and text */
+                margin-bottom: 25px;
+                text-align: left;
+            }
+
+            .about-list .list-item i {
+                font-size: 20px;
+                color: var(--primary);
+                flex-shrink: 0;
+                /* Prevents the icon from shrinking */
+                padding-top: 4px;
+                /* Adjusts vertical alignment for a perfect look */
+            }
+
+            .about-list .list-item p {
+                margin: 0;
+                /* Removes all default paragraph margins */
+                text-align: left;
+                color: var(--text);
             }
         }
     </style>
@@ -1175,7 +1420,6 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         What are the key benefits of using PAD'OR products?
-                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         Our collection is crafted to give your skin a luxurious, silky
@@ -1188,7 +1432,6 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         Are your products suitable for all skin types?
-                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         Yes, we've formulated our products to be gentle and effective for
@@ -1200,7 +1443,6 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         Where are PAD'OR products made?
-                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         All PAD'OR products are proudly
@@ -1211,7 +1453,6 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         Do you offer delivery across Lebanon?
-                        <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         Yes! We offer cash on delivery service to all areas across
@@ -1810,8 +2051,8 @@
         document.querySelectorAll(".faq-question").forEach((question) => {
             question.addEventListener("click", () => {
                 const answer = question.nextElementSibling;
-                answer.style.display =
-                    answer.style.display === "block" ? "none" : "block";
+                question.classList.toggle("active");
+                answer.classList.toggle("active");
             });
         });
 
@@ -1821,10 +2062,36 @@
 
         mobileMenuToggle.addEventListener("click", () => {
             mobileNavLinks.classList.toggle("active");
+            mobileMenuToggle.classList.toggle("active");
         });
 
         // Initial render
         renderCart();
+
+        // --- Intersection Observer for Scroll Animations ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const fadeInElements = document.querySelectorAll('.section-title, .about-content, .products-grid, .testimonial-grid, .steps, .faq-grid, .cta .container');
+
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once it's visible
+                    }
+                });
+            }, observerOptions);
+
+            fadeInElements.forEach(el => {
+                el.classList.add('fade-in'); // Add the initial state class
+                observer.observe(el);
+            });
+        });
     </script>
 </body>
 
