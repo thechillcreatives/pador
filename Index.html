@@ -23,7 +23,7 @@
     <meta property="og:description" content="Shop our luxurious lotions, scrubs, and tanning oils. Cash on delivery across Lebanon.">
     <meta property="og:image" content="https://yourdomain.com/img/lotion.png">
     <meta property="og:type" content="website">
-
+    
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -39,10 +39,10 @@
         }
 
         :root {
-            --primary: #D4A59A;
-            --primary-dark: #8B5D57;
-            --secondary: #FDF9F3;
-            --accent: #C28E7D;
+  --primary: #D4A59A;
+  --primary-dark: #A67F78;
+  --secondary: #F9F5F0;
+  --accent: #E8C4B8;
             --text: #4A4A4A;
             --text-light: #8A8A8A;
             --white: #FFFFFF;
@@ -328,11 +328,12 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .product-image {
@@ -371,7 +372,7 @@
         .product-price {
             font-size: 22px;
             font-weight: 700;
-            color: var(--primary);
+            color: #8B5D57; /* Darker shade for better contrast */
             margin-bottom: 15px;
         }
 
@@ -1024,11 +1025,12 @@
                 color: var(--text);
             }
 
-            .btn,
-            .add-to-cart-btn {
-                min-height: 44px;
-                padding: 14px 28px;
-            }
+            .btn, .add-to-cart-btn {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
             .nav-links a {
                 padding: 15px 0;
@@ -1120,7 +1122,8 @@
             }
 
             .hero h1 {
-                font-size: 28px;
+                font-size: 2.2rem;
+                line-height: 1.2;
             }
 
             .hero p {
@@ -1143,6 +1146,14 @@
 
             .faq-question h3 {
                 font-size: 16px;
+            }
+
+            .product-card {
+                margin: 0 10px 25px;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
             }
         }
 
@@ -1382,6 +1393,12 @@
             content: "+1";
             font-size: 14px;
         }
+
+        .btn:focus, 
+a:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
     </style>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="application/ld+json">
