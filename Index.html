@@ -17,6 +17,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PAD'OR - Natural Skincare & Beauty Products in Lebanon</title>
     <meta name="description" content="Discover PAD'OR's natural and organic skincare products crafted in Lebanon. Shop our luxurious body lotions, scrubs, and tanning oils for a radiant glow. We offer cash on delivery in Beirut, Jounieh, and all of Lebanon." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="theme-color" content="#D4A59A">
+    <meta property="og:title" content="PAD'OR - Natural Skincare in Lebanon">
+    <meta property="og:description" content="Shop our luxurious lotions, scrubs, and tanning oils. Cash on delivery across Lebanon.">
+    <meta property="og:image" content="https://yourdomain.com/img/lotion.png">
+    <meta property="og:type" content="website">
+
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -33,13 +40,13 @@
 
         :root {
             --primary: #D4A59A;
-            --primary-dark: #9F796A;
+            --primary-dark: #8B5D57;
             --secondary: #FDF9F3;
             --accent: #C28E7D;
-            --text: #555555;
-            --text-light: #AAAAAA;
+            --text: #4A4A4A;
+            --text-light: #8A8A8A;
             --white: #FFFFFF;
-            /* --- New Font Variables --- */
+            --off-white: #F8F5F0;
             --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Lato', sans-serif;
         }
@@ -72,21 +79,23 @@
 
         .btn {
             display: inline-block;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: var(--white);
             padding: 12px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .btn:hover {
-            background: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-dark), var(--accent));
             transform: translateY(-2px);
         }
+
 
         .btn-outline {
             background: transparent;
@@ -164,15 +173,33 @@
         }
 
         .nav-links a {
+            position: relative;
+            display: inline-block;
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
             transition: color 0.3s;
         }
 
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
         .nav-links a:hover {
             color: var(--primary);
         }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
 
         .cart-icon {
             position: relative;
@@ -309,7 +336,7 @@
         }
 
         .product-image {
-            height: 250px;
+            position: relative;
             overflow: hidden;
         }
 
@@ -840,11 +867,7 @@
             background-color: var(--primary-dark);
         }
 
-        .menu-toggle.active i::before {
-            content: "\f00d";
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-        }
+
 
         .about-list {
             display: flex;
@@ -939,9 +962,7 @@
                 transition: transform 0.3s ease;
             }
 
-            .menu-toggle.active i {
-                transform: rotate(90deg);
-            }
+
 
             .cart-icon {
                 display: block;
@@ -1002,6 +1023,95 @@
                 text-align: left;
                 color: var(--text);
             }
+
+            .btn,
+            .add-to-cart-btn {
+                min-height: 44px;
+                padding: 14px 28px;
+            }
+
+            .nav-links a {
+                padding: 15px 0;
+                display: block;
+            }
+
+            /* Hamburger icon */
+            .hamburger-box {
+                width: 24px;
+                height: 18px;
+                display: inline-block;
+                position: relative;
+            }
+
+            .hamburger-inner {
+                display: block;
+                top: 50%;
+                margin-top: -1px;
+            }
+
+            .hamburger-inner,
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                width: 24px;
+                height: 2px;
+                background-color: var(--primary-dark);
+                position: absolute;
+                transition: transform 0.3s ease;
+            }
+
+            .hamburger-inner::before,
+            .hamburger-inner::after {
+                content: "";
+                display: block;
+            }
+
+            .hamburger-inner::before {
+                top: -8px;
+            }
+
+            .hamburger-inner::after {
+                bottom: -8px;
+            }
+
+            .menu-toggle.active .hamburger-inner {
+                transform: rotate(45deg);
+            }
+
+            .menu-toggle.active .hamburger-inner::before {
+                transform: rotate(-90deg) translate(-8px, 0);
+            }
+
+            .menu-toggle.active .hamburger-inner::after {
+                opacity: 0;
+            }
+
+            /* Mobile nav */
+            @media (max-width: 768px) {
+                .nav-links {
+                    position: fixed;
+                    top: 80px;
+                    left: 0;
+                    width: 100%;
+                    background-color: var(--white);
+                    flex-direction: column;
+                    padding: 20px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                    transform: translateY(-100%);
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                }
+
+                .nav-links.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .nav-links li {
+                    margin: 10px 0;
+                }
+            }
         }
 
         @media (max-width: 480px) {
@@ -1036,117 +1146,264 @@
             }
         }
 
-            .powered-by {
-                margin-top: 10px;
-                font-size: 12px;
-                color: #ccc;
+        .powered-by {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #ccc;
+        }
+
+        .powered-by a {
+            color: #4a6cf7;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bundles-section {
+            margin-top: 50px;
+            /* Adjust the value as needed */
+        }
+
+        .product-card .product-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .product-card .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .about-slider {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            /* Ensures the slider fills its container */
+        }
+
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slider-image.active {
+            opacity: 1;
+        }
+
+        /* reCAPTCHA responsive styling */
+        .recaptcha-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 400px) {
+            .g-recaptcha {
+                transform: scale(0.85);
+                transform-origin: center;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .g-recaptcha {
+                transform: scale(0.75);
+                transform-origin: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: left;
+                padding-top: 20px;
             }
 
-            .powered-by a {
-                color: #4a6cf7;
-                text-decoration: none;
-                font-weight: 600;
+            .about-list {
+                padding: 0 20px;
             }
 
-            .bundles-section {
-                margin-top: 50px;
-                /* Adjust the value as needed */
+            .about-list .list-item {
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 15px;
+                /* Creates the space you want between the icon and text */
+                margin-bottom: 25px;
+                text-align: left;
             }
 
-            .product-card .product-image {
-                width: 100%;
-                height: 400px;
-                overflow: hidden;
+            .about-list .list-item i {
+                font-size: 20px;
+                color: var(--primary);
+                flex-shrink: 0;
+                /* Prevents the icon from shrinking */
+                padding-top: 4px;
+                /* Adjusts vertical alignment for a perfect look */
             }
 
-            .product-card .product-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
+            .about-list .list-item p {
+                margin: 0;
+                /* Removes all default paragraph margins */
+                text-align: left;
+                color: var(--text);
+            }
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            z-index: 1;
+            /* Ensure it appears above the image */
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
             }
 
-            .about-slider {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                /* Ensures the slider fills its container */
+            100% {
+                background-position: -200% 0;
             }
+        }
 
-            .slider-image {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                opacity: 0;
-                transition: opacity 1.5s ease-in-out;
-            }
+        .product-image:not(.loaded)::before {
+            display: block;
+        }
 
-            .slider-image.active {
+        .product-image.loaded::before {
+            display: none;
+        }
+
+        .product-image img.loaded {
+            opacity: 1;
+        }
+
+        .product-image img.lazy {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .btn:hover::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
                 opacity: 1;
             }
 
-            /* reCAPTCHA responsive styling */
-            .recaptcha-container {
-                margin: 20px 0;
-                text-align: center;
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
             }
 
-            @media (max-width: 400px) {
-                .g-recaptcha {
-                    transform: scale(0.85);
-                    transform-origin: center;
-                }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
             }
+        }
 
-            @media (max-width: 320px) {
-                .g-recaptcha {
-                    transform: scale(0.75);
-                    transform-origin: center;
-                }
-            }
+        /* Add placeholder style for lazy loading */
+        img.lazy {
+            background: #f0f0f0;
+            min-height: 200px;
+        }
 
-            @media (max-width: 768px) {
-                .about-content {
-                    flex-direction: column;
-                    text-align: left;
-                    padding-top: 20px;
-                }
+        /* Ensure loaded images are visible */
+        img.lazy.loaded {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
 
-                .about-list {
-                    padding: 0 20px;
-                }
+        /* Initial state for lazy images */
+        img.lazy {
+            opacity: 0;
+        }
 
-                .about-list .list-item {
-                    display: flex;
-                    align-items: flex-start;
-                    justify-content: flex-start;
-                    gap: 15px;
-                    /* Creates the space you want between the icon and text */
-                    margin-bottom: 25px;
-                    text-align: left;
-                }
+        /* Fly-to-cart animation styles */
+        .fly-to-cart {
+            position: fixed;
+            z-index: 9999;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            pointer-events: none;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
 
-                .about-list .list-item i {
-                    font-size: 20px;
-                    color: var(--primary);
-                    flex-shrink: 0;
-                    /* Prevents the icon from shrinking */
-                    padding-top: 4px;
-                    /* Adjusts vertical alignment for a perfect look */
-                }
-
-                .about-list .list-item p {
-                    margin: 0;
-                    /* Removes all default paragraph margins */
-                    text-align: left;
-                    color: var(--text);
-                }
-            }
+        .fly-to-cart::before {
+            content: "+1";
+            font-size: 14px;
+        }
     </style>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": "PAD'OR Hydrating Body Lotion",
+            "image": "https://yourdomain.com/img/lotion.png",
+            "description": "A lightweight, luxurious lotion that melts into your skin, leaving it soft, smooth, and delicately scented.",
+            "brand": {
+                "@type": "Brand",
+                "name": "PAD'OR"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "USD",
+                "price": "14.00",
+                "availability": "https://schema.org/InStock"
+            }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -1166,7 +1423,9 @@
                         <span class="cart-count">0</span>
                     </div>
                     <div class="menu-toggle" id="mobileMenuToggle">
-                        <i class="fas fa-bars"></i>
+                        <span class="hamburger-box">
+                            <span class="hamburger-inner"></span>
+                        </span>
                     </div>
                 </div>
             </nav>
@@ -1188,7 +1447,8 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="img/golden-goddess-trio.png" alt="Luxurious body care ingredients" />
+                    <!-- <img src="img/golden-goddess-trio.png" alt="Luxurious body care ingredients" class="lazy" /> -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="img/golden-goddess-trio.png" alt="Luxurious body care ingredients" class="lazy" />
                 </div>
                 <div class="about-text">
                     <h2>The PAD'OR Philosophy</h2>
@@ -1221,7 +1481,7 @@
             <div class="products-grid">
                 <div class="product-card" data-product-id="1" data-product-name="Body Lotion" data-product-price="14.00">
                     <div class="product-image">
-                        <img src="img/lotion.png" alt="PAD'OR Hydrating Body Lotion" />
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="img/lotion.png" alt="PAD'OR Hydrating Body Lotion" class="lazy" />
                     </div>
                     <div class="product-details">
                         <h3 class="product-name">The Silky Touch Body Lotion</h3>
@@ -1236,7 +1496,7 @@
 
                 <div class="product-card" data-product-id="2" data-product-name="Body Scrub" data-product-price="16.00">
                     <div class="product-image">
-                        <img src="img/scrub.png" alt="PAD'OR Exfoliating Body Scrub" />
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="img/scrub.png" alt="PAD'OR Exfoliating Body Scrub" class="lazy" />
                     </div>
                     <div class="product-details">
                         <h3 class="product-name">The Glow Body Scrub</h3>
@@ -1251,7 +1511,7 @@
 
                 <div class="product-card" data-product-id="3" data-product-name="Tanning Oil" data-product-price="15.00">
                     <div class="product-image">
-                        <img src="img/tanning.png" alt="PAD'OR Golden Tanning Oil" />
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="img/tanning.png" alt="PAD'OR Golden Tanning Oil" class="lazy" />
                     </div>
                     <div class="product-details">
                         <h3 class="product-name">The Golden Tanning Oil</h3>
@@ -1273,7 +1533,7 @@
                 <div class="products-grid">
                     <div class="product-card" data-product-id="4" data-product-name="Silky Touch Duo" data-product-price="27.00">
                         <div class="product-image">
-                            <img src="img/silky-touch.png" alt="PAD'OR Silky Touch Duo Bundle" />
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="img/silky-touch.png" alt="PAD'OR Silky Touch Duo Bundle" class="lazy" />
                         </div>
                         <div class="product-details">
                             <h3 class="product-name">Silky Touch Duo</h3>
@@ -1288,7 +1548,7 @@
 
                     <div class="product-card" data-product-id="5" data-product-name="Golden Goddess Trio" data-product-price="42.00">
                         <div class="product-image">
-                            <img src="img/golden-goddess-trio.png" alt="PAD'OR Golden Goddess Trio Bundle" />
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" data-src="img/golden-goddess-trio.png" alt="PAD'OR Golden Goddess Trio Bundle" class="lazy" />
                         </div>
                         <div class="product-details">
                             <h3 class="product-name">Golden Goddess Trio</h3>
@@ -1518,10 +1778,10 @@
         </div>
     </footer>
 
-    <div id="cartModal" class="modal">
+    <div id="cartModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
         <div class="modal-content">
-            <span class="modal-close-btn" id="closeCartBtn">&times;</span>
-            <h2>Your Cart</h2>
+            <span class="modal-close-btn" id="closeCartBtn" aria-label="Close cart">&times;</span>
+            <h2 id="cartTitle">Your Cart</h2>
 
             <div class="modal-body">
                 <div class="cart-items" id="cartItemsContainer"></div>
@@ -1678,6 +1938,7 @@
             updateOrderSummary(subtotal);
             updateCartCount();
 
+
             // Add event listeners for new buttons
             document.querySelectorAll(".increase-quantity").forEach((button) => {
                 button.addEventListener("click", (e) => {
@@ -1807,13 +2068,9 @@
 
                 const productCard = button.closest(".product-card");
                 const productName = productCard.dataset.productName;
-                const productPrice = parseFloat(productCard.dataset.productPrice);
 
-                // Add item to cart logic
-                addItemToCart({
-                    name: productName,
-                    price: productPrice,
-                });
+                // Create fly-to-cart animation
+                createFlyToCartAnimation(button, productName);
 
                 // Add visual feedback
                 const originalText = button.textContent;
@@ -2105,6 +2362,98 @@
                 observer.observe(el);
             });
         });
+
+        // Lazy loading images - FIXED VERSION
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+
+                            lazyImage.src = lazyImage.dataset.src;
+
+                            lazyImage.onload = () => {
+                                lazyImage.classList.remove("lazy");
+                                lazyImage.classList.add("loaded");
+                                lazyImage.parentElement.classList.add("loaded"); // ✅ ensures overlay disappears
+                            };
+
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers without Intersection Observer
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove("lazy");
+                    lazyImage.classList.add("loaded");
+                    lazyImage.parentElement.classList.add("loaded"); // ✅ added here too
+                });
+            }
+        });
+
+
+        function createFlyToCartAnimation(startElement, productName) {
+            // Create the flying element
+            const flyElement = document.createElement('div');
+            flyElement.className = 'fly-to-cart';
+            flyElement.textContent = '+1';
+            document.body.appendChild(flyElement);
+
+            // Get positions - account for scroll position
+            const startRect = startElement.getBoundingClientRect();
+            const cartIcon = document.querySelector('.cart-icon');
+            const cartIconRect = cartIcon.getBoundingClientRect();
+
+            // Calculate the center positions of both elements
+            const startX = startRect.left + startRect.width / 2;
+            const startY = startRect.top + startRect.height / 2;
+            const endX = cartIconRect.left + cartIconRect.width / 2;
+            const endY = cartIconRect.top + cartIconRect.height / 2;
+
+            // Set initial position (center of the button)
+            flyElement.style.position = 'fixed';
+            flyElement.style.left = `${startX - 15}px`; // 15px is half of the 30px width
+            flyElement.style.top = `${startY - 15}px`; // 15px is half of the 30px height
+
+            // Calculate the distance to travel
+            const deltaX = endX - startX;
+            const deltaY = endY - startY;
+
+            // Animate to cart
+            const animation = flyElement.animate([{
+                    transform: 'translate(0, 0) scale(1)',
+                    opacity: 1
+                },
+                {
+                    transform: `translate(${deltaX}px, ${deltaY}px) scale(0.5)`,
+                    opacity: 0.5
+                }
+            ], {
+                duration: 800,
+                easing: 'ease-in-out'
+            });
+
+            // Remove element after animation completes
+            animation.onfinish = () => {
+                flyElement.remove();
+                // Add item to cart after animation completes
+                const productCard = startElement.closest('.product-card');
+                const productPrice = parseFloat(productCard.dataset.productPrice);
+                addItemToCart({
+                    name: productName,
+                    price: productPrice,
+                });
+            };
+        }
     </script>
 </body>
 
